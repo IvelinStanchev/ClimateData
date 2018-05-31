@@ -1,0 +1,48 @@
+C:\WORK\NBU\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csprojResolveAssemblyReference.cache
+C:\WORK\NBU\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csproj.CoreCompileInputs.cache
+C:\WORK\NBU\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfoInputs.cache
+C:\WORK\NBU\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfo.cs
+C:\WORK\NBU\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.deps.json
+C:\WORK\NBU\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.json
+C:\WORK\NBU\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.dev.json
+C:\WORK\NBU\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.dll
+C:\WORK\NBU\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.pdb
+C:\WORK\NBU\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.dll
+C:\WORK\NBU\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.pdb
+C:\WORK\NBU\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Learn\C_Sharp_Learn\CSCB025 Практика по програмиране и по реализация на бази данни\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.deps.json
+C:\Learn\C_Sharp_Learn\CSCB025 Практика по програмиране и по реализация на бази данни\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.json
+C:\Learn\C_Sharp_Learn\CSCB025 Практика по програмиране и по реализация на бази данни\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.dev.json
+C:\Learn\C_Sharp_Learn\CSCB025 Практика по програмиране и по реализация на бази данни\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.dll
+C:\Learn\C_Sharp_Learn\CSCB025 Практика по програмиране и по реализация на бази данни\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.pdb
+C:\Learn\C_Sharp_Learn\CSCB025 Практика по програмиране и по реализация на бази данни\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csprojAssemblyReference.cache
+C:\Learn\C_Sharp_Learn\CSCB025 Практика по програмиране и по реализация на бази данни\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csproj.CoreCompileInputs.cache
+C:\Learn\C_Sharp_Learn\CSCB025 Практика по програмиране и по реализация на бази данни\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Learn\C_Sharp_Learn\CSCB025 Практика по програмиране и по реализация на бази данни\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfoInputs.cache
+C:\Learn\C_Sharp_Learn\CSCB025 Практика по програмиране и по реализация на бази данни\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfo.cs
+C:\Learn\C_Sharp_Learn\CSCB025 Практика по програмиране и по реализация на бази данни\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.dll
+C:\Learn\C_Sharp_Learn\CSCB025 Практика по програмиране и по реализация на бази данни\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.pdb
+C:\Learn\C_Sharp_Learn\CSCB025\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.dll
+C:\Learn\C_Sharp_Learn\CSCB025\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.pdb
+C:\Learn\C_Sharp_Learn\CSCB025\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.deps.json
+C:\Learn\C_Sharp_Learn\CSCB025\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.json
+C:\Learn\C_Sharp_Learn\CSCB025\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.dev.json
+C:\Learn\C_Sharp_Learn\CSCB025\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.dll
+C:\Learn\C_Sharp_Learn\CSCB025\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.pdb
+C:\Learn\C_Sharp_Learn\CSCB025\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csprojAssemblyReference.cache
+C:\Learn\C_Sharp_Learn\CSCB025\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csproj.CoreCompileInputs.cache
+C:\Learn\C_Sharp_Learn\CSCB025\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Learn\C_Sharp_Learn\CSCB025\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfoInputs.cache
+C:\Learn\C_Sharp_Learn\CSCB025\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfo.cs
+C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csprojAssemblyReference.cache
+C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csproj.CoreCompileInputs.cache
+C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfoInputs.cache
+C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfo.cs
+C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.dll
+C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.pdb
+C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.deps.json
+C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.json
+C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.dev.json
+C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.dll
+C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.pdb
