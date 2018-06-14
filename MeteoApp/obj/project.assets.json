@@ -13165,23 +13165,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\konje\\.nuget\\packages\\": {},
+    "C:\\Users\\Ivelin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\WORK\\NBU\\ProjectMeteo\\MeteoApp\\MeteoApp\\MeteoApp.csproj",
+      "projectUniqueName": "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp\\MeteoApp.csproj",
       "projectName": "MeteoApp",
-      "projectPath": "C:\\WORK\\NBU\\ProjectMeteo\\MeteoApp\\MeteoApp\\MeteoApp.csproj",
-      "packagesPath": "C:\\Users\\konje\\.nuget\\packages\\",
-      "outputPath": "C:\\WORK\\NBU\\ProjectMeteo\\MeteoApp\\MeteoApp\\obj\\",
+      "projectPath": "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp\\MeteoApp.csproj",
+      "packagesPath": "C:\\Users\\Ivelin\\.nuget\\packages\\",
+      "outputPath": "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\konje\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ivelin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

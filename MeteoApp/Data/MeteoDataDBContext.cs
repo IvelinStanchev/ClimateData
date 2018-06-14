@@ -14,7 +14,8 @@ namespace MeteoApp.Data
 
         }
         public DbSet<Station> Stations { get; set; }
-        public DbSet<StationData> StationDatas { get; set; }
+        public DbSet<DayData> DaysData { get; set; }
+        public DbSet<StationAvailability> StationsAvailability { get; set; }
 
     }
 }

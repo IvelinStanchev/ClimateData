@@ -9,7 +9,7 @@ namespace MeteoApp.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public decimal Weight { get; set; }
-        public ICollection<StationData> StationDatas { get; set; }
+        public ICollection<DayData> StationDatas { get; set; }
+        public ICollection<StationAvailability> StationAvailabilityPeriods { get; set; }
     }
 }

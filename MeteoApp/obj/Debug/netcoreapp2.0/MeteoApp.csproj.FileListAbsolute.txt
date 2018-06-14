@@ -46,3 +46,15 @@ C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runt
 C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.dev.json
 C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.dll
 C:\WORK\NBU\ProjectMeteo\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.pdb
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.deps.json
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.json
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.dev.json
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.dll
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.pdb
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csprojResolveAssemblyReference.cache
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csproj.CoreCompileInputs.cache
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfoInputs.cache
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfo.cs
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.dll
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.pdb
