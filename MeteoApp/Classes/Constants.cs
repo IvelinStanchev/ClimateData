@@ -7,6 +7,6 @@ namespace MeteoApp
 {
     public class Constants
     {
-        public const string AdminId = "admin@internal.com";        
+        public const string AdminId = "admin@internal.com";
     }
 }

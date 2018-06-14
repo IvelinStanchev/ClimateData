@@ -10,6 +10,7 @@ namespace MeteoApp.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public ICollection<DayData> StationDatas { get; set; }
+        public ICollection<StationWeight> StationWeights { get; set; }
         public ICollection<StationAvailability> StationAvailabilityPeriods { get; set; }
     }
 }
