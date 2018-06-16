@@ -61,3 +61,20 @@ D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoAp
 D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.Data.Models.dll
 D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.Data.Models.pdb
 D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csproj.CopyComplete
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.deps.json
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.json
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.runtimeconfig.dev.json
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.dll
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.pdb
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.Data.Models.dll
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.Data.Models.pdb
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csprojAssemblyReference.cache
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csproj.CoreCompileInputs.cache
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfoInputs.cache
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfo.cs
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csproj.CopyComplete
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.dll
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.pdb
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.Common.dll
+C:\Users\vixat\Desktop\Coding\GitRepos\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.Common.pdb

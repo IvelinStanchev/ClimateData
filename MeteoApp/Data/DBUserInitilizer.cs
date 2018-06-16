@@ -1,9 +1,7 @@
-﻿using MeteoApp.Models;
-using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Identity;
+using MeteoApp.Common;
+using MeteoApp.Models;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MeteoApp.Data
 {

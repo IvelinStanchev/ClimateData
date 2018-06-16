@@ -24,6 +24,7 @@
       "MeteoApp/1.0.0": {
         "dependencies": {
           "AutoMapper": "6.2.2",
+          "MeteoApp.Common": "1.0.0",
           "MeteoApp.Data.Models": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.6",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.2",
@@ -4077,6 +4078,14 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
+      "MeteoApp.Common/1.0.0": {
+        "runtime": {
+          "MeteoApp.Common.dll": {}
+        },
+        "compile": {
+          "MeteoApp.Common.dll": {}
+        }
+      },
       "MeteoApp.Data.Models/1.0.0": {
         "runtime": {
           "MeteoApp.Data.Models.dll": {}
@@ -6403,6 +6412,11 @@
       "sha512": "sha512-W6ZZ0/o7+3Qb77mRAQyLjPudHG3OMeeQ4p9yY13PUdJArmRCx2cLMm5F4tpIjJXxzHC0ew0oK7DMDGILMdfCnw==",
       "path": "windowsazure.storage/8.1.4",
       "hashPath": "windowsazure.storage.8.1.4.nupkg.sha512"
+    },
+    "MeteoApp.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "MeteoApp.Data.Models/1.0.0": {
       "type": "project",

@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MeteoApp.Common\MeteoApp.Common.csproj" />
     <ProjectReference Include="..\MeteoApp.Data.Models\MeteoApp.Data.Models.csproj" />
   </ItemGroup>
 
