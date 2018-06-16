@@ -58,3 +58,6 @@ D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoAp
 D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.AssemblyInfo.cs
 D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.dll
 D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.pdb
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.Data.Models.dll
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\bin\Debug\netcoreapp2.0\MeteoApp.Data.Models.pdb
+D:\Weather ASP.NET - Team Work\MeteoApp\MeteoApp\obj\Debug\netcoreapp2.0\MeteoApp.csproj.CopyComplete

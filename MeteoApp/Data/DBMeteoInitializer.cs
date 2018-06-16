@@ -1,4 +1,5 @@
-﻿using MeteoApp.Models;
+﻿using MeteoApp.Data.Models;
+using MeteoApp.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,23 +19,23 @@ namespace MeteoApp.Data
             }
             var stations = new Station[]
             {
-                new Station{ID = 1, Name="София"},
-                new Station{ID = 2, Name="Видин"},
-                new Station{ID = 3, Name="Монтана"},
-                new Station{ID = 4, Name="Враца"},
-                new Station{ID = 5, Name="Плевен"},
-                new Station{ID = 6, Name="В. Търново"},
-                new Station{ID = 7, Name="Русе"},
-                new Station{ID = 8, Name="Разград"},
-                new Station{ID = 9, Name="Добрич"},
-                new Station{ID = 10, Name="Варна"},
-                new Station{ID = 11, Name="Бургас"},
-                new Station{ID = 12, Name="Сливен"},
-                new Station{ID = 13, Name="Кърджали"},
-                new Station{ID = 14, Name="Пловдив"},
-                new Station{ID = 15, Name="Благоевград"},
-                new Station{ID = 16, Name="Сандански"},
-                new Station{ID = 17, Name="Кюстендил"}
+                new Station{Id = 1, Name="София"},
+                new Station{Id = 2, Name="Видин"},
+                new Station{Id = 3, Name="Монтана"},
+                new Station{Id = 4, Name="Враца"},
+                new Station{Id = 5, Name="Плевен"},
+                new Station{Id = 6, Name="В. Търново"},
+                new Station{Id = 7, Name="Русе"},
+                new Station{Id = 8, Name="Разград"},
+                new Station{Id = 9, Name="Добрич"},
+                new Station{Id = 10, Name="Варна"},
+                new Station{Id = 11, Name="Бургас"},
+                new Station{Id = 12, Name="Сливен"},
+                new Station{Id = 13, Name="Кърджали"},
+                new Station{Id = 14, Name="Пловдив"},
+                new Station{Id = 15, Name="Благоевград"},
+                new Station{Id = 16, Name="Сандански"},
+                new Station{Id = 17, Name="Кюстендил"}
 
             };
             foreach (Station st in stations)
@@ -54,13 +55,13 @@ namespace MeteoApp.Data
             }
 
 
-            var daysData = new DayData[]
+            var daysData = new DayWeatherData[]
             {
                 CreateDayData(1, new DateTime(2018, 6, 14), 30, 0.2M, 2.4M, 0),
                 CreateDayData(1, new DateTime(2018, 6, 13), 28, 2.0M, 4.8M, 0),
                 CreateDayData(1, new DateTime(2018, 6, 12), 29, 0.0M, 4.0M, 0),
             };
-            foreach (DayData eachData in daysData)
+            foreach (DayWeatherData eachData in daysData)
             {
                 context.DaysData.Add(eachData);
             }          
@@ -68,16 +69,16 @@ namespace MeteoApp.Data
 
         }
        
-        private static DayData CreateDayData(int stationID, DateTime date, decimal temperature, decimal precipitation, decimal wind, int numberOfThunders)
+        private static DayWeatherData CreateDayData(int stationID, DateTime date, decimal temperature, decimal precipitation, decimal wind, int numberOfThunders)
         {
-            return new DayData
+            return new DayWeatherData
             {
-                StationID = stationID,
+                StationId = stationID,
                 Date = date,
                 Temperature = temperature,
                 Precipitation = precipitation,
                 Wind = wind,
-                NumberOfThunders = numberOfThunders
+                ThunderCount = numberOfThunders
             };
         }
 

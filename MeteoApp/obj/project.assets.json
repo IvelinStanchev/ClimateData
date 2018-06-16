@@ -5050,6 +5050,16 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "MeteoApp.Data.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/MeteoApp.Data.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MeteoApp.Data.Models.dll": {}
+        }
       }
     }
   },
@@ -13153,11 +13163,17 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "MeteoApp.Data.Models/1.0.0": {
+      "type": "project",
+      "path": "../MeteoApp.Data.Models/MeteoApp.Data.Models.csproj",
+      "msbuildProject": "../MeteoApp.Data.Models/MeteoApp.Data.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "AutoMapper >= 6.2.2",
+      "MeteoApp.Data.Models >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.6",
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.2",
       "Microsoft.NETCore.App >= 2.0.0",
@@ -13193,7 +13209,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp.Data.Models\\MeteoApp.Data.Models.csproj": {
+              "projectPath": "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp.Data.Models\\MeteoApp.Data.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
