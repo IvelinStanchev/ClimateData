@@ -1,5 +1,6 @@
 ﻿using MeteoApp.Data;
 using MeteoApp.Data.Models;
+using MeteoApp.Data.Models.Base;
 using MeteoApp.Models;
 using System;
 using System.Collections.Generic;
@@ -10,87 +11,38 @@ namespace MeteoApp.Services
     class MainService
     {
         MeteoDataDBContext dbContext = new MeteoDataDBContext();
-        
-        private bool IsInRange(DateTime from, DateTime to, DateTime periodFrom, DateTime periodTo)
-        {
-            return (periodFrom <= from && from <= periodTo) ||
-                (from <= periodFrom && periodFrom <= to);
-        }
 
-        public List<Station> GetStationsForPeriod(DateTime from, DateTime to)
+        /*private IQueryable<IPeriod> ApplyRangeRestriction(IQueryable<IPeriod> oldDataSet, 
+            DateTime from, DateTime to)
         {
-            var stations = dbContext.StationsAvailabilityPeriods
-                .Where(sa => IsInRange(from, to, sa.From, sa.To))
-                .GroupBy(pair => pair.Station.Name)
-                .Join(dbContext.Stations,
-                sa => sa.Key,
-                station => station.Name,
-                (sa, station) => new { StationAvailability = sa, Station = station })
-                .Select(group => group.Station)
-                .ToList();
-
-            return stations;
-        }
+            return oldDataSet.Where(set => 
+            (set.From <= from && from <= set.To) ||
+            (from <= set.From && set.From <= to));
+        }*/
 
         public ICollection<StationAvailabilityPeriod> GetAvailablePeriodsForStationRange(DateTime from, DateTime to, Station station)
         {
             return dbContext.StationsAvailabilityPeriods
                 .Where(sa => sa.Station.Id == station.Id)
-                .Where(sa => IsInRange(from, to, sa.From, sa.To))
+                .Where(sa => (sa.From <= from && from <= sa.To) || (from <= sa.From && sa.From <= to))
                 .ToList();
         }
 
-        public ICollection<StationWeight> GetStationWeightsForPeriod(DateTime from, DateTime to, ICollection<StationAvailabilityPeriod> availPeriods)
-        {
-            var result = new List<StationWeight>();
-
-            var groupedStationWeights = dbContext.StationsWeights
-                .Where(x => availPeriods.Any(y => y.Station.Name == x.Station.Name))
-                .Where(x => IsInRange(from, to, x.From, x.To))
-                .GroupBy(x => x.Station.Name);
-
-            foreach (var stationWeightGroup in groupedStationWeights)
-            {
-                StationWeight weightToAdd = stationWeightGroup
-                    .OrderByDescending(x => x.AddedOn)
-                    .FirstOrDefault();
-
-                if (weightToAdd != null)
-                {
-                    result.Add(weightToAdd);
-                }
-            }
-
-            return result;
-        }
-
-        public ICollection<DayWeatherData> GetWeatherDataFromWeight(StationWeight stationWeight)
-        {
-            return dbContext.DaysData
-                .Where(x => x.Station.Id == stationWeight.Station.Id)
-                .Where(x => stationWeight.From <= x.Date && x.Date <= stationWeight.To)
-                .ToList();
-        }
-        
-        
-        public ICollection<MeteoReport> GetMeteoReportData(DateTime reportDateFrom, DateTime reportDateTo, 
+        public ICollection<MeteoReport> GetMeteoReportData(DateTime from, DateTime to,
             decimal normTemperature, decimal normPrecipitation)
         {
             // getting all stations that are for the selected period
-            var periodsForEachStation =
-                dbContext.StationsAvailabilityPeriods
-                .Where(sa => IsInRange(reportDateFrom, reportDateTo, sa.From, sa.To))
-                .GroupBy(sa => sa.Station.Name);
+            var stations = dbContext.Stations.Where(x => x.StationAvailabilityPeriods.Any(period =>
+           (period.From <= from && from <= period.To) || (from <= period.From && period.From <= to)));
 
             List<MeteoReport> reportList = new List<MeteoReport>();
 
             // get days data for that stations for from/to
-            foreach (var periods in periodsForEachStation)
+            foreach (var station in stations)
             {
-                int stationId = periods.FirstOrDefault().StationId;
                 var daysData = dbContext.DaysData
-                    .Where(dd => dd.StationId == stationId)
-                    .Where(x => reportDateFrom <= x.Date && x.Date <= reportDateTo)
+                    .Where(dd => dd.StationId == station.Id)
+                    .Where(x => from <= x.Date && x.Date <= to)
                     .ToList();
 
                 decimal averageTemperature = daysData.Average(x => x.Temperature);
@@ -100,7 +52,7 @@ namespace MeteoApp.Services
                 DayWeatherData dayMaxPrecipitation = daysData.Aggregate((agg, next) => next.Precipitation > agg.Precipitation ? next : agg);
 
                 reportList.Add(new MeteoReport(
-                    stationId,
+                    station.Id,
                     averageTemperature,
                     Math.Abs(averageTemperature - normTemperature),
                     dayMaxTemperature.Temperature,
@@ -121,14 +73,14 @@ namespace MeteoApp.Services
             return reportList;
         }
 
-        public MeteoReport GetMeteoReportDataGlobally(DateTime reportDateFrom, DateTime reportDateTo,
+        public MeteoReport GetMeteoReportDataGlobally(DateTime from, DateTime to,
             decimal normTemperature, decimal normPrecipitation)
         {
-            ICollection<MeteoReport> reportForStations = GetMeteoReportData(reportDateFrom, reportDateTo, normTemperature, normPrecipitation);
+            ICollection<MeteoReport> reportForStations = GetMeteoReportData(from, to, normTemperature, normPrecipitation);
 
             var groupedStationWeights = dbContext.StationsWeights
                 .Where(x => reportForStations.Any(y => y.StationId == x.StationId))
-                .Where(x => IsInRange(reportDateFrom, reportDateTo, x.From, x.To))
+                .Where(x => (x.From <= from && from <= x.To) || (from <= x.From && x.From <= to))
                 .GroupBy(x => x.Station.Name);
 
             IDictionary<MeteoReport, decimal> reportWeight = new Dictionary<MeteoReport, decimal>();// maps report with weight

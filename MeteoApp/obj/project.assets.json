@@ -5051,16 +5051,6 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
-      "MeteoApp.Common/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "compile": {
-          "bin/placeholder/MeteoApp.Common.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MeteoApp.Common.dll": {}
-        }
-      },
       "MeteoApp.Data.Models/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -13174,11 +13164,6 @@
         "windowsazure.storage.nuspec"
       ]
     },
-    "MeteoApp.Common/1.0.0": {
-      "type": "project",
-      "path": "../MeteoApp.Common/MeteoApp.Common.csproj",
-      "msbuildProject": "../MeteoApp.Common/MeteoApp.Common.csproj"
-    },
     "MeteoApp.Data.Models/1.0.0": {
       "type": "project",
       "path": "../MeteoApp.Data.Models/MeteoApp.Data.Models.csproj",
@@ -13188,7 +13173,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "AutoMapper >= 6.2.2",
-      "MeteoApp.Common >= 1.0.0",
+      "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp.Common\\MeteoApp.Common.csproj",
       "MeteoApp.Data.Models >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.6",
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.2",
@@ -13197,23 +13182,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vixat\\.nuget\\packages\\": {},
+    "C:\\Users\\Ivelin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vixat\\Desktop\\Coding\\GitRepos\\MeteoApp\\MeteoApp\\MeteoApp.csproj",
+      "projectUniqueName": "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp\\MeteoApp.csproj",
       "projectName": "MeteoApp",
-      "projectPath": "C:\\Users\\vixat\\Desktop\\Coding\\GitRepos\\MeteoApp\\MeteoApp\\MeteoApp.csproj",
-      "packagesPath": "C:\\Users\\vixat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vixat\\Desktop\\Coding\\GitRepos\\MeteoApp\\MeteoApp\\obj\\",
+      "projectPath": "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp\\MeteoApp.csproj",
+      "packagesPath": "C:\\Users\\Ivelin\\.nuget\\packages\\",
+      "outputPath": "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\vixat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ivelin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13226,11 +13211,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\vixat\\Desktop\\Coding\\GitRepos\\MeteoApp\\MeteoApp.Common\\MeteoApp.Common.csproj": {
-              "projectPath": "C:\\Users\\vixat\\Desktop\\Coding\\GitRepos\\MeteoApp\\MeteoApp.Common\\MeteoApp.Common.csproj"
+            "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp.Common\\MeteoApp.Common.csproj": {
+              "projectPath": "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp.Common\\MeteoApp.Common.csproj"
             },
-            "C:\\Users\\vixat\\Desktop\\Coding\\GitRepos\\MeteoApp\\MeteoApp.Data.Models\\MeteoApp.Data.Models.csproj": {
-              "projectPath": "C:\\Users\\vixat\\Desktop\\Coding\\GitRepos\\MeteoApp\\MeteoApp.Data.Models\\MeteoApp.Data.Models.csproj"
+            "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp.Data.Models\\MeteoApp.Data.Models.csproj": {
+              "projectPath": "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp.Data.Models\\MeteoApp.Data.Models.csproj"
             }
           }
         }
@@ -13275,5 +13260,16 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp.Common\\MeteoApp.Common.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "D:\\Weather ASP.NET - Team Work\\MeteoApp\\MeteoApp.Common\\MeteoApp.Common.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    }
+  ]
 }
