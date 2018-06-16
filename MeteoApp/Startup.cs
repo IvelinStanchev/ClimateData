@@ -27,9 +27,9 @@ namespace MeteoApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<UserDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("UserDbContext")));
             services.AddDbContext<MeteoDataDBContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("MetoConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("MeteoDataDBContext")));
 
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options => {
