@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ChartJSCore" Version="1.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MeteoApp.Data.Models\MeteoApp.Data.Models.csproj" />
     <ProjectReference Include="..\MeteoApp\MeteoApp.csproj" />
   </ItemGroup>
