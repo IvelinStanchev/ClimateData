@@ -1,4 +1,5 @@
 ﻿using MeteoApp.Data.Models;
+using MeteoApp.Data.Models.Base;
 using MeteoApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +23,11 @@ namespace MeteoApp.Data
 
         }
 
+        public DbSet<Station> Stations { get; set; }
+        public DbSet<DayWeatherData> DaysData { get; set; }
+        public DbSet<StationAvailabilityPeriod> StationsAvailabilityPeriods { get; set; }
+        public DbSet<StationWeight> StationsWeights { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -35,10 +41,31 @@ namespace MeteoApp.Data
             }
         }
 
-        public DbSet<Station> Stations { get; set; }
-        public DbSet<DayWeatherData> DaysData { get; set; }
-        public DbSet<StationAvailabilityPeriod> StationsAvailabilityPeriods { get; set; }
-        public DbSet<StationWeight> StationsWeights { get; set; }
+        public override int SaveChanges()
+        {
+            this.ApplyAuditInfoRules();
+            return base.SaveChanges();
+        }
+
+        private void ApplyAuditInfoRules()
+        {
+            foreach (var entry in
+                this.ChangeTracker.Entries()
+                    .Where(
+                        e =>
+                        e.Entity is DbModel && ((e.State == EntityState.Added) || (e.State == EntityState.Modified))))
+            {
+                var entity = (DbModel)entry.Entity;
+                if (entry.State == EntityState.Added)
+                {
+                    entity.AddedOn = DateTime.Now;
+                }
+                else
+                {
+                    entity.ChangedOn = DateTime.Now;
+                }
+            }
+        }
 
     }
 }
