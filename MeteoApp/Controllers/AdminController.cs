@@ -123,10 +123,5 @@ namespace MeteoApp.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
-        public IActionResult AddStationData()
-        {
-            return View();
-        }
     }
 }
