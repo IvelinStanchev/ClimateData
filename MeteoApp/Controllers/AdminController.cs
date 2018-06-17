@@ -4,6 +4,7 @@ using MeteoApp.Models.AdminViewModels;
 using MeteoApp.Data;
 using MeteoApp.Data.Models;
 using System;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MeteoApp.Controllers
 {
@@ -12,8 +13,9 @@ namespace MeteoApp.Controllers
         public const string STATION_NAME_INVALID = "Invalid station name.";
         public const string STATION_ALREADY_EXISTS = "Station already exists.";
         public const string INVALID_WEIGHT_SUM = "The sum of weights must be equal to 1.";
-        public const string START_CANNOT_BE_BEFORE_END = "The interval start cannot be after the interval end.";
-
+        public const string START_CANNOT_BE_AFTER_END = "The interval start cannot be after the interval end.";
+        public const string STATION_DOES_NOT_EXIST = "Station does not exist.";
+        
         public IActionResult Index()
         {
             return View();
@@ -100,7 +102,7 @@ namespace MeteoApp.Controllers
 
             if (weightData.From > weightData.To)
             {
-                ModelState.AddModelError(string.Empty, START_CANNOT_BE_BEFORE_END);
+                ModelState.AddModelError(string.Empty, START_CANNOT_BE_AFTER_END);
 
                 return View(weightData);
             }
@@ -123,5 +125,66 @@ namespace MeteoApp.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public IActionResult AddAvailabilityPeriod()
+        {
+            var meteoData = new MeteoDataDBContext();
+
+            var stationNames = meteoData
+                .Stations
+                .Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Name
+                });
+
+            var viewModel = new CreateStationAvailabilityViewModel
+            {
+                StationNames = stationNames,
+                From = DateTime.Now,
+                To= DateTime.Now
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult AddAvailabilityPeriod(CreateStationAvailabilityViewModel availabilityPeriod)
+        {
+            var meteoData = new MeteoDataDBContext();
+            
+            var station = meteoData
+                .Stations
+                .FirstOrDefault(x => x.Name.ToLower() == availabilityPeriod.StationName.ToLower());
+
+            if (station == null)
+            {
+                ModelState.AddModelError(string.Empty, STATION_DOES_NOT_EXIST);
+                availabilityPeriod.StationNames = meteoData
+                    .Stations
+                    .Select(x => new SelectListItem
+                    {
+                        Text = x.Name,
+                        Value = x.Name
+                    });
+
+                return View(availabilityPeriod);
+            }
+
+            var availabilityPeriodToAdd = new StationAvailabilityPeriod
+            {
+                // TODO: validate these
+                From = availabilityPeriod.From,
+                To = availabilityPeriod.To,
+                Station = station
+            };
+
+            meteoData.StationsAvailabilityPeriods.Add(availabilityPeriodToAdd);
+            meteoData.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }
