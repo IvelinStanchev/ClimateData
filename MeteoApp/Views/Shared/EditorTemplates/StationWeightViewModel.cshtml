@@ -1,0 +1,11 @@
+﻿@model StationWeightViewModel
+
+<div class="form-group">
+    @Html.LabelFor(m => m.StationName, Model.StationName, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.HiddenFor(m => m.StationId)
+        @Html.HiddenFor(m => m.StationName)
+        @Html.TextBoxFor(m => m.StationWeight, new { @class = "form-control" })
+    </div>
+</div>
+
