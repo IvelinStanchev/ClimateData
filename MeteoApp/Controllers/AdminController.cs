@@ -5,6 +5,7 @@ using MeteoApp.Data;
 using MeteoApp.Data.Models;
 using System;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MeteoApp.Controllers
 {
@@ -15,18 +16,21 @@ namespace MeteoApp.Controllers
         public const string INVALID_WEIGHT_SUM = "The sum of weights must be equal to 1.";
         public const string START_CANNOT_BE_AFTER_END = "The interval start cannot be after the interval end.";
         public const string STATION_DOES_NOT_EXIST = "Station does not exist.";
-        
+
+        [Authorize]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult AddStation()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult AddStation(CreateStationViewModel stationToAdd)
         {
@@ -63,6 +67,7 @@ namespace MeteoApp.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult AddWeights()
         {
@@ -88,6 +93,7 @@ namespace MeteoApp.Controllers
             return View(viewModel);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult AddWeights(AddStationWeightsViewModel weightData)
         {
@@ -126,6 +132,7 @@ namespace MeteoApp.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult AddAvailabilityPeriod()
         {
@@ -149,6 +156,7 @@ namespace MeteoApp.Controllers
             return View(viewModel);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult AddAvailabilityPeriod(CreateStationAvailabilityViewModel availabilityPeriod)
         {

@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MeteoApp.Data;
 using MeteoApp.Models;
 using MeteoApp.Services;
+using MeteoApp.Common;
 
 namespace MeteoApp
 {
@@ -48,12 +49,29 @@ namespace MeteoApp
             services.AddMvc();
 
             // Add Database Initializer
-            services.AddScoped<DBUserInitilizer>();
 
         }
 
+        private async Task CreateUserRoles(IServiceProvider serviceProvider)
+        {
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+            IdentityResult roleResult;
+
+            var roleCheck = await RoleManager.RoleExistsAsync("Admin");
+            if(!roleCheck)
+            {
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+
+            ApplicationUser user = await UserManager.FindByEmailAsync(Constants.AdminId);
+            var User = new ApplicationUser();
+            await UserManager.AddToRoleAsync(user, "Admin");
+        }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, DBUserInitilizer dbUserInitializer)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider services)
         {
             if (env.IsDevelopment())
             {
@@ -70,7 +88,6 @@ namespace MeteoApp
 
             app.UseAuthentication();
 
-            dbUserInitializer.Initialize();
 
             app.UseMvc(routes =>
             {
@@ -78,6 +95,8 @@ namespace MeteoApp
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            CreateUserRoles(services).Wait();
         }
     }
 }
