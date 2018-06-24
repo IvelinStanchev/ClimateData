@@ -83,12 +83,14 @@ namespace MeteoApp.Services
                 .Where(x => (x.From <= from && from <= x.To) || (from <= x.From && x.From <= to))
                 .GroupBy(x => x.Station.Name);
 
-            IDictionary<MeteoReport, decimal> reportWeight = new Dictionary<MeteoReport, decimal>();// maps report with weight
+            IDictionary<MeteoReport, decimal> reportWeightTemp = new Dictionary<MeteoReport, decimal>();// maps report with weight
 
             foreach (var meteoReport in reportForStations)
             {
-                reportWeight[meteoReport] = 0;
+                reportWeightTemp[meteoReport] = 0;
             }
+
+            decimal reportWeightsSum = 0;
 
             foreach (var stationWeightGroup in groupedStationWeights)
             {
@@ -96,12 +98,20 @@ namespace MeteoApp.Services
                     .OrderByDescending(x => x.AddedOn)
                     .FirstOrDefault();
 
-                var report = reportWeight.Keys.Where(x => x.StationId == weightToAdd.StationId).FirstOrDefault();
+                var report = reportWeightTemp.Keys.Where(x => x.StationId == weightToAdd.StationId).FirstOrDefault();
 
                 if (report != null)
                 {
-                    reportWeight[report] = weightToAdd.Weight;
+                    reportWeightTemp[report] = weightToAdd.Weight;
+                    reportWeightsSum += weightToAdd.Weight;
                 }
+            }
+
+            IDictionary<MeteoReport, decimal> reportWeight = new Dictionary<MeteoReport, decimal>();
+
+            foreach (var pair in reportWeightTemp)
+            {
+                reportWeight[pair.Key] = pair.Value / reportWeightsSum;
             }
 
             decimal averageTemperature = reportWeight.Sum(x => x.Key.TemperatureAvg * x.Value);
