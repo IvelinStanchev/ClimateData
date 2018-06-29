@@ -63,11 +63,12 @@ namespace MeteoApp
             if(!roleCheck)
             {
                 roleResult = await RoleManager.CreateAsync(new IdentityRole("Admin"));
+
+                ApplicationUser user = await UserManager.FindByEmailAsync(Constants.AdminId);
+                var User = new ApplicationUser();
+                await UserManager.AddToRoleAsync(user, "Admin");
             }
 
-            ApplicationUser user = await UserManager.FindByEmailAsync(Constants.AdminId);
-            var User = new ApplicationUser();
-            await UserManager.AddToRoleAsync(user, "Admin");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
