@@ -7,11 +7,11 @@
 <h1>Глобален репорт</h1>
 
 <form asp-controller="Home" asp-action="GetGlobalReport" data-ajax="true" data-ajax-method="POST"
-      data-ajax-mode="" data-ajax-update="#content">
+      data-ajax-mode="replace" data-ajax-update="#content">
     @Html.Label("startDate", "Начална дата: ")
-    @Html.TextBoxFor(m => m.StartDate, new { placeholder = "yyyy/MM", @class = "form-input" })
+    @Html.EditorFor(m => m.StartDate, new { placeholder = "yyyy/MM", @class = "form-input" })
     @Html.Label("startDate", "Крайна дата: ")
-    @Html.TextBoxFor(m => m.EndDate, new { placeholder = "yyyy/MM", @class = "form-input" })
+    @Html.EditorFor(m => m.EndDate, new { placeholder = "yyyy/MM", @class = "form-input" })
     <input type="submit" value="Генерирай" id="btnSubmit" />
 </form>
 

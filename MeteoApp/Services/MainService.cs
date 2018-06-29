@@ -88,7 +88,8 @@ namespace MeteoApp.Services
 
             foreach (var meteoReport in reportForStations)
             {
-                reportWeightTemp[meteoReport] = 0;
+                reportWeightTemp.Add(meteoReport, 0);
+                //reportWeightTemp[meteoReport] = 0;
             }
 
             decimal reportWeightsSum = 0;
@@ -112,32 +113,72 @@ namespace MeteoApp.Services
 
             foreach (var pair in reportWeightTemp)
             {
-                reportWeight[pair.Key] = pair.Value / reportWeightsSum;
+                reportWeight.Add(pair.Key, pair.Value / reportWeightsSum);
+                //reportWeight[pair.Key] = pair.Value / reportWeightsSum;
             }
 
             decimal averageTemperature = reportWeight.Sum(x => x.Key.TemperatureAvg * x.Value);
-            MeteoReport reportMaxTemperature = reportWeight.Aggregate((agg, next) => next.Key.TemperatureMax > agg.Key.TemperatureMax ? next : agg).Key;
-            MeteoReport reportMinTemperature = reportWeight.Aggregate((agg, next) => next.Key.TemperatureMin < agg.Key.TemperatureMin ? next : agg).Key;
+
+            //MeteoReport reportMaxTemperature = reportWeight.Aggregate((agg, next) => next.Key.TemperatureMax > agg.Key.TemperatureMax ? next : agg).Key;
+            //MeteoReport reportMinTemperature = reportWeight.Aggregate((agg, next) => next.Key.TemperatureMin < agg.Key.TemperatureMin ? next : agg).Key);
+
+            decimal reportMaxTemperature = decimal.MinValue;
+            DateTime reportMaxTemperatureDate = DateTime.Now;
+            decimal reportMinTemperature = decimal.MaxValue;
+            DateTime reportMinTemperatureDate = DateTime.Now;
+            decimal reportMaxPrecipitation = decimal.MinValue;
+            DateTime reportMaxPrecipitationDate = DateTime.Now;
+
+            foreach (var item in reportWeight)
+            {
+                var actualItem = item.Key;
+
+                if (actualItem.TemperatureMax > reportMaxTemperature)
+                {
+                    reportMaxTemperature = actualItem.TemperatureMax;
+                    reportMaxTemperatureDate = actualItem.TemperatureMaxDate;
+                }
+
+                if (actualItem.TemperatureMin < reportMinTemperature)
+                {
+                    reportMinTemperature = actualItem.TemperatureMin;
+                    reportMinTemperatureDate = actualItem.TemperatureMinDate;
+                }
+
+                if (actualItem.PrecipitationMax > reportMaxPrecipitation)
+                {
+                    reportMaxPrecipitation = actualItem.PrecipitationMax;
+                    reportMaxPrecipitationDate = actualItem.PrecipitationMaxDate;
+                }
+            }
+
             decimal precipitationSum = reportWeight.Sum(x => x.Key.PrecipitationSum * x.Value);
-            MeteoReport reportMaxPrecipitation = reportWeight.Aggregate((agg, next) => next.Key.PrecipitationMax > agg.Key.PrecipitationMax ? next : agg).Key;
 
             return new MeteoReport(
                     -1,
                     "Global",
                     averageTemperature,
                     Math.Abs(averageTemperature - normTemperature),
-                    reportMaxTemperature.TemperatureMax,
-                    reportMaxTemperature.TemperatureMaxDate,
-                    reportMinTemperature.TemperatureMin,
-                    reportMinTemperature.TemperatureMinDate,
+                    reportMaxTemperature,
+                    reportMaxTemperatureDate,
+                    reportMinTemperature,
+                    reportMinTemperatureDate,
                     precipitationSum,
                     Math.Abs(precipitationSum - normPrecipitation),
-                    reportMaxPrecipitation.PrecipitationMax,
-                    reportMaxPrecipitation.PrecipitationMaxDate,
-                    reportWeight.Max(x => x.Key.DayCountPrecipitationBiggerThan1),
-                    reportWeight.Max(x => x.Key.DayCountPrecipitationBiggerThan10),
-                    reportWeight.Max(x => x.Key.DayCountWindBiggerThan14),
-                    reportWeight.Max(x => x.Key.DayCountThunders)
+                    reportMaxPrecipitation,
+                    reportMaxPrecipitationDate,
+                    reportWeight.Count > 0
+                        ? reportWeight.Max(x => x.Key.DayCountPrecipitationBiggerThan1)
+                        : 0,
+                    reportWeight.Count > 0
+                        ? reportWeight.Max(x => x.Key.DayCountPrecipitationBiggerThan10)
+                        : 0,
+                    reportWeight.Count > 0
+                        ? reportWeight.Max(x => x.Key.DayCountWindBiggerThan14)
+                        : 0,
+                    reportWeight.Count > 0
+                        ? reportWeight.Max(x => x.Key.DayCountThunders)
+                        : 0
                 );
         }
     }
