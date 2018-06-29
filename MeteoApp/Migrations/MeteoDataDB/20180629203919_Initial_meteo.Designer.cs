@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace MeteoApp.Migrations
+namespace MeteoApp.Migrations.MeteoDataDB
 {
     [DbContext(typeof(MeteoDataDBContext))]
-    [Migration("20180616205052_InitialMeteoAppMigration")]
-    partial class InitialMeteoAppMigration
+    [Migration("20180629203919_Initial_meteo")]
+    partial class Initial_meteo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

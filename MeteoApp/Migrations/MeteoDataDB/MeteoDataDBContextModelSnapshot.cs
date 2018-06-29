@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace MeteoApp.Migrations
+namespace MeteoApp.Migrations.MeteoDataDB
 {
     [DbContext(typeof(MeteoDataDBContext))]
     partial class MeteoDataDBContextModelSnapshot : ModelSnapshot

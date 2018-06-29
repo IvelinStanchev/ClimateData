@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace MeteoApp.Migrations
+namespace MeteoApp.Migrations.MeteoDataDB
 {
-    public partial class InitialMeteoAppMigration : Migration
+    public partial class Initial_meteo : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

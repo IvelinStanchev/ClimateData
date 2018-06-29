@@ -54,10 +54,13 @@ namespace MeteoApp
 
         private async Task CreateUserRoles(IServiceProvider serviceProvider)
         {
+            serviceProvider.GetRequiredService<UserDbContext>().Database.EnsureCreated();
+
             var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
             IdentityResult roleResult;
+
 
             var roleCheck = await RoleManager.RoleExistsAsync("Admin");
             if(!roleCheck)
@@ -65,7 +68,18 @@ namespace MeteoApp
                 roleResult = await RoleManager.CreateAsync(new IdentityRole("Admin"));
 
                 ApplicationUser user = await UserManager.FindByEmailAsync(Constants.AdminId);
-                var User = new ApplicationUser();
+
+                if (user == null)
+                {
+                    await UserManager.CreateAsync(new ApplicationUser
+                    {
+                        UserName = Constants.AdminId,
+                        Email = Constants.AdminId
+                    }, "1234");
+
+                    user = await UserManager.FindByEmailAsync(Constants.AdminId);
+                }
+
                 await UserManager.AddToRoleAsync(user, "Admin");
             }
 
