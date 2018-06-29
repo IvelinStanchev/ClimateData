@@ -6,13 +6,14 @@ namespace MeteoApp.Data.Models
 {
     public class MeteoReport
     {
-        public MeteoReport(int stationId, decimal temperatureAvg, decimal temperatureDeviation, decimal temperatureMax, 
+        public MeteoReport(int stationId, String stationName, decimal temperatureAvg, decimal temperatureDeviation, decimal temperatureMax, 
             DateTime temperatureMaxDate, decimal temperatureMin, DateTime temperatureMinDate, 
             decimal precipitationSum, decimal precipitationAgainstNorm, decimal precipitationMax, 
             DateTime precipitationMaxDate, int dayCountPrecipitationBiggerThan1, int dayCountPrecipitationBiggerThan10, 
             int dayCountWindBiggerThan14, int dayCountThunders)
         {
             StationId = stationId;
+            StationName = stationName;
             TemperatureAvg = temperatureAvg;
             TemperatureDeviation = temperatureDeviation;
             TemperatureMax = temperatureMax;
@@ -30,6 +31,7 @@ namespace MeteoApp.Data.Models
         }
 
         public int StationId { get; set; }
+        public String StationName { get; set; }
         public decimal TemperatureAvg { get; set; }
         public decimal TemperatureDeviation { get; set; }
         public decimal TemperatureMax { get; set; }

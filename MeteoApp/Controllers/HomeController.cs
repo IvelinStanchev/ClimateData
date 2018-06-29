@@ -9,8 +9,11 @@ using Microsoft.AspNetCore.Authorization;
 using MeteoApp.Models.HomeViewModels;
 using MeteoApp.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using MeteoApp.Data.Models;
+using MeteoApp.Services;
 using ChartJSCore.Models;
+using MeteoApp.Models.AdminViewModels;
+using MeteoApp.Data.Models;
+using MeteoApp.Common;
 
 namespace MeteoApp.Controllers
 {
@@ -59,6 +62,49 @@ namespace MeteoApp.Controllers
             ViewData["chart"] = chart;
 
             return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult GetStationsReportForPeriod(DatePeriodModel datePeriod)
+        {
+            ICollection<MeteoReport> reports = new MainService().GetMeteoReportData(
+                datePeriod.StartDate,
+                datePeriod.EndDate,
+                Constants.MONTHLY_TEMPERATURE_NORM,
+                Constants.MONTHLY_PRECIPITATION_NORM);
+
+            return PartialView("ReportDataView", reports);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult GetStationsReportForPeriod()
+        {
+            return View("GetStationsReportForPeriodView");
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult GetGlobalReport(DatePeriodModel datePeriod)
+        {
+            MeteoReport report = new MainService().GetMeteoReportDataGlobally(
+                datePeriod.StartDate,
+                datePeriod.EndDate,
+                Constants.MONTHLY_TEMPERATURE_NORM,
+                Constants.MONTHLY_PRECIPITATION_NORM);
+
+            List<MeteoReport> reports = new List<MeteoReport>();
+            reports.Add(report);
+
+            return PartialView("ReportDataView", reports);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult GetGlobalReport()
+        {
+            return View("GetGlobalReportView");
         }
 
         [Authorize]

@@ -1,0 +1,20 @@
+﻿@model DatePeriodModel
+
+@{
+    ViewData["Title"] = "Репорт за станции";
+}
+
+<h1>Репорт за станции</h1>
+
+<form asp-controller="Home" asp-action="GetStationsReportForPeriod" data-ajax="true" data-ajax-method="POST"
+      data-ajax-mode="" data-ajax-update="#content">
+    @Html.Label("startDate", "Начална дата: ")
+    @Html.TextBoxFor(m => m.StartDate, new { placeholder = "yyyy/MM", @class = "form-input" })
+    @Html.Label("startDate", "Крайна дата: ")
+    @Html.TextBoxFor(m => m.EndDate, new { placeholder = "yyyy/MM", @class = "form-input" })
+    <input type="submit" value="Генерирай" id="btnSubmit" />
+</form>
+
+<div id="content">
+
+</div>

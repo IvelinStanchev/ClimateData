@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="ChartJSCore" Version="1.2.4" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.5" />
   </ItemGroup>
 
 </Project>

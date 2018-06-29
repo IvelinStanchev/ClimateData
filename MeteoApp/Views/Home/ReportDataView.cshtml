@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MeteoApp.Data.Models.MeteoReport>
+
+<table style="width:100%">
+    <tr>
+        <th rowspan="3">Станция</th>
+        <th colspan="6">Температура на въздуха</th>
+        <th colspan="4">Валеж (mm)</th>
+        <th colspan="4">Брой дни с</th>
+    </tr>
+    <tr>
+        <th rowspan="2">Тср.</th>
+        <th rowspan="2">Отклонение</th>
+        <th rowspan="2">Тмакс</th>
+        <th rowspan="2">Дата</th>
+        <th rowspan="2">Тмин</th>
+        <th rowspan="2">Дата</th>
+        <th rowspan="2">Сума</th>
+        <th rowspan="2">Q/Qn</th>
+        <th rowspan="2">Максимален</th>
+        <th rowspan="2">Дата</th>
+        <th colspan="2">Валеж (mm)</th>
+        <th rowspan="2">Вятър >= 14 m/s</th>
+        <th rowspan="2">Гръмотевици</th>
+    </tr>
+    <tr>
+        <th>>= 1</th>
+        <th>>= 10</th>
+    </tr>
+
+    @foreach (MeteoApp.Data.Models.MeteoReport report in Model)
+    {
+        <tr>
+            <td>@report.StationName</td>
+            <td>@report.TemperatureAvg</td>
+            <td>@report.TemperatureDeviation</td>
+            <td>@report.TemperatureMax</td>
+            <td>@report.TemperatureMaxDate</td>
+            <td>@report.TemperatureMin</td>
+            <td>@report.TemperatureMinDate</td>
+            <td>@report.PrecipitationSum</td>
+            <td>@report.PrecipitationAgainstNorm</td>
+            <td>@report.PrecipitationMax</td>
+            <td>@report.PrecipitationMaxDate</td>
+            <td>@report.DayCountPrecipitationBiggerThan1</td>
+            <td>@report.DayCountPrecipitationBiggerThan10</td>
+            <td>@report.DayCountWindBiggerThan14</td>
+            <td>@report.DayCountThunders</td>
+        </tr>
+    }
+</table>

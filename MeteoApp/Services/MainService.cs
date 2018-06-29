@@ -53,6 +53,7 @@ namespace MeteoApp.Services
 
                 reportList.Add(new MeteoReport(
                     station.Id,
+                    station.Name,
                     averageTemperature,
                     Math.Abs(averageTemperature - normTemperature),
                     dayMaxTemperature.Temperature,
@@ -122,6 +123,7 @@ namespace MeteoApp.Services
 
             return new MeteoReport(
                     -1,
+                    "Global",
                     averageTemperature,
                     Math.Abs(averageTemperature - normTemperature),
                     reportMaxTemperature.TemperatureMax,
