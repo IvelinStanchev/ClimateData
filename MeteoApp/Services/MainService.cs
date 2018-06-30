@@ -115,17 +115,37 @@ namespace MeteoApp.Services
             return result;
         }
 
-        public Chart GetChartData(string optionType, string stationName, DateTime from, DateTime to)
+        public Chart GetChartData(bool showMinTemp, bool showMaxTemp, bool showPrecipation, bool showThunder, string stationName, DateTime from, DateTime to)
         {
             var chart = new Chart();
             chart.Type = "line";
-            var splitData = this.GetSplitData(optionType, stationName, from, to);
+            var splitData = this.GetSplitData("0", stationName, from, to);
 
             ChartJSCore.Models.Data data = new ChartJSCore.Models.Data();
-            data.Labels = splitData.Select(x => "").ToList();
 
+            data.Labels = splitData.Select(x => "").ToList();
             data.Datasets = new List<Dataset>();
-            data.Datasets.Add(this.GetChartDataset(optionType, splitData));
+
+            if (showMinTemp)
+            {
+                data.Datasets.Add(this.GetChartDataset("0", splitData));
+            }
+
+            if (showMaxTemp)
+            {
+                data.Datasets.Add(this.GetChartDataset("1", splitData));
+            }
+
+            if (showPrecipation)
+            {
+                data.Datasets.Add(this.GetChartDataset("2", splitData));
+            }
+
+            if (showThunder)
+            {
+                data.Datasets.Add(this.GetChartDataset("3", splitData));
+            }
+
             chart.Data = data;
 
             return chart;

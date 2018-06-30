@@ -37,11 +37,36 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(m => m.WeatherDataTypeName, new { @class = "col-md-2 control-label" })
+            @Html.LabelFor(m => m.ShowMinTemp, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.WeatherDataTypeName, Model.WeatherDataTypeNames, new { @class = "form-control" })
+                @Html.CheckBoxFor(m => m.ShowMinTemp, new { @class = "form-control" })
             </div>
         </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ShowMaxTemp, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(m => m.ShowMaxTemp, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ShowPrecipation, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(m => m.ShowPrecipation, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ShowThunder, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(m => m.ShowThunder, new { @class = "form-control" })
+            </div>
+        </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

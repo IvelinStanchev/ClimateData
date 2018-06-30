@@ -34,21 +34,12 @@ namespace MeteoApp.Controllers
                     }                
             );
 
-            SelectListItem[] weatherDataTypes =
-            {
-                new SelectListItem { Text = "Мин. температура", Value = "0" },
-                new SelectListItem { Text = "Макс. температура", Value = "1" },
-                new SelectListItem { Text = "Валежи", Value = "2" },
-                new SelectListItem { Text = "Гръмотевици", Value = "3" }
-            };
-
 
             var viewModel = new GraphicalStationDataViewModel
             {
                 From = DateTime.Now,
                 To = DateTime.Now,
-                StationNames = stationNames,
-                WeatherDataTypeNames = weatherDataTypes
+                StationNames = stationNames
             };
 
             return View(viewModel);
@@ -60,7 +51,10 @@ namespace MeteoApp.Controllers
             var meteoService = new MainService();
 
             ViewData["chart"] = meteoService.GetChartData(
-                stationDataQuery.WeatherDataTypeName,
+                stationDataQuery.ShowMinTemp,
+                stationDataQuery.ShowMaxTemp,
+                stationDataQuery.ShowPrecipation,
+                stationDataQuery.ShowThunder,
                 stationDataQuery.StationName,
                 DateTime.Now,
                 DateTime.Now

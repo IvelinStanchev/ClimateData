@@ -18,9 +18,18 @@ namespace MeteoApp.Models.HomeViewModels
         public DateTime To { get; set; }
 
         public IEnumerable<SelectListItem> StationNames { get; set; }
-        public IEnumerable<SelectListItem> WeatherDataTypeNames { get; set; }
-
         public string StationName { get; set; }
-        public string WeatherDataTypeName { get; set; }
+        
+        [Display(Name = "Мин. температура")]
+        public bool ShowMinTemp { get; set; }
+
+        [Display(Name = "Макс. температура")]
+        public bool ShowMaxTemp { get; set; }
+
+        [Display(Name = "Валежи")]
+        public bool ShowPrecipation { get; set; }
+
+        [Display(Name = "Гръмотевици")]
+        public bool ShowThunder { get; set; }
     }
 }
