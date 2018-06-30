@@ -21,45 +21,50 @@ namespace MeteoApp.Controllers
     {
         public const string STATION_DOES_NOT_EXIST = "Station does not exist.";
 
+        [HttpGet]
         public IActionResult Index()
         {
-            Chart chart = new Chart();
+            var meteoData = new MeteoDataDBContext();
 
-            chart.Type = "line";
+            var stationNames = meteoData.Stations.Select(x => 
+                    new SelectListItem
+                    {
+                        Text = x.Name,
+                        Value = x.Name
+                    }                
+            );
 
-            ChartJSCore.Models.Data data = new ChartJSCore.Models.Data();
-            data.Labels = new List<string>() { "January", "February", "March", "April", "May", "June", "July" };
-
-            LineDataset dataset = new LineDataset()
+            SelectListItem[] weatherDataTypes =
             {
-                Label = "My First dataset",
-                Data = new List<double>() { 65, 59, 80, 81, 56, 55, 40 },
-                Fill = "false",
-                LineTension = 0.1,
-                BackgroundColor = "rgba(75, 192, 192, 0.4)",
-                BorderColor = "rgba(75,192,192,1)",
-                BorderCapStyle = "butt",
-                BorderDash = new List<int> { },
-                BorderDashOffset = 0.0,
-                BorderJoinStyle = "miter",
-                PointBorderColor = new List<string>() { "rgba(75,192,192,1)" },
-                PointBackgroundColor = new List<string>() { "#fff" },
-                PointBorderWidth = new List<int> { 1 },
-                PointHoverRadius = new List<int> { 5 },
-                PointHoverBackgroundColor = new List<string>() { "rgba(75,192,192,1)" },
-                PointHoverBorderColor = new List<string>() { "rgba(220,220,220,1)" },
-                PointHoverBorderWidth = new List<int> { 2 },
-                PointRadius = new List<int> { 1 },
-                PointHitRadius = new List<int> { 10 },
-                SpanGaps = false
+                new SelectListItem { Text = "Мин. температура", Value = "0" },
+                new SelectListItem { Text = "Макс. температура", Value = "1" },
+                new SelectListItem { Text = "Валежи", Value = "2" },
+                new SelectListItem { Text = "Гръмотевици", Value = "3" }
             };
 
-            data.Datasets = new List<Dataset>();
-            data.Datasets.Add(dataset);
 
-            chart.Data = data;
+            var viewModel = new GraphicalStationDataViewModel
+            {
+                From = DateTime.Now,
+                To = DateTime.Now,
+                StationNames = stationNames,
+                WeatherDataTypeNames = weatherDataTypes
+            };
 
-            ViewData["chart"] = chart;
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Index(GraphicalStationDataViewModel stationDataQuery)
+        {
+            var meteoService = new MainService();
+
+            ViewData["chart"] = meteoService.GetChartData(
+                stationDataQuery.WeatherDataTypeName,
+                stationDataQuery.StationName,
+                DateTime.Now,
+                DateTime.Now
+            );
 
             return View();
         }

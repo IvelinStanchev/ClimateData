@@ -1,4 +1,5 @@
-﻿using MeteoApp.Data;
+﻿using ChartJSCore.Models;
+using MeteoApp.Data;
 using MeteoApp.Data.Models;
 using MeteoApp.Data.Models.Base;
 using MeteoApp.Models;
@@ -12,13 +13,125 @@ namespace MeteoApp.Services
     {
         MeteoDataDBContext dbContext = new MeteoDataDBContext();
 
-        /*private IQueryable<IPeriod> ApplyRangeRestriction(IQueryable<IPeriod> oldDataSet, 
-            DateTime from, DateTime to)
+        private LineDataset GetChartDataset(string labelId, List<double> data)
         {
-            return oldDataSet.Where(set => 
-            (set.From <= from && from <= set.To) ||
-            (from <= set.From && set.From <= to));
-        }*/
+            string datasetLabel = "";
+
+            switch (labelId)
+            {
+                case "0":
+                    datasetLabel = "Мин. температура";
+                    break;
+                case "1":
+                    datasetLabel = "Макс. температура";
+                    break;
+                case "2":
+                    datasetLabel = "Валежи";
+                    break;
+                case "3":
+                    datasetLabel = "Гръмотевици";
+                    break;
+                default:
+                    break;
+            }
+
+            return new LineDataset()
+            {
+                Label = datasetLabel,
+                Data = data,
+                Fill = "true",
+                LineTension = 0.1,
+                BackgroundColor = "rgba(75, 192, 192, 0.4)",
+                BorderColor = "rgba(75,192,192,1)",
+                BorderCapStyle = "butt",
+                BorderDash = new List<int> { },
+                BorderDashOffset = 0.0,
+                BorderJoinStyle = "miter",
+                PointBorderColor = new List<string>() { "rgba(75,192,192,1)" },
+                PointBackgroundColor = new List<string>() { "#fff" },
+                PointBorderWidth = new List<int> { 1 },
+                PointHoverRadius = new List<int> { 5 },
+                PointHoverBackgroundColor = new List<string>() { "rgba(75,192,192,1)" },
+                PointHoverBorderColor = new List<string>() { "rgba(220,220,220,1)" },
+                PointHoverBorderWidth = new List<int> { 2 },
+                PointRadius = new List<int> { 1 },
+                PointHitRadius = new List<int> { 10 },
+                SpanGaps = false
+            };
+        }
+
+        private List<DateTime> GetSplitIntervalsStartDates(DateTime from, DateTime to)
+        {
+            var result = new List<DateTime>();
+            int parts = 5;
+
+            var timespan = to.Subtract(from);
+            int daysPerPart = timespan.Days / parts;
+
+            for (int i = 0; i < parts; i++)
+            {
+                result.Add(from.AddDays(daysPerPart * i));
+            }
+
+            return result;
+        }
+
+        private List<double> GetSplitData(string optionType, string stationName, DateTime from, DateTime to)
+        {
+            var result = new List<double>();
+            var dates = this.GetSplitIntervalsStartDates(from, to);
+
+            for (int i = 0; i < dates.Count - 1; i++)
+            {
+                var reportResult = this.GetMeteoReportData(dates[i], dates[i + 1], 0, 5)
+                    .FirstOrDefault(x => x.StationName.ToLower() == stationName.ToLower());
+
+                if (reportResult == null)
+                {
+                    result.Add(5 * i);
+                    continue;
+                }
+
+                switch (optionType)
+                {
+                    case "0":
+                        result.Add((double)reportResult.TemperatureMin);
+                        break;
+                    case "1":
+                        result.Add((double)reportResult.TemperatureMax);
+                        break;
+                    case "2":
+                        result.Add((double)reportResult.PrecipitationSum);
+                        break;
+                    case "3":
+                        result.Add((double)reportResult.DayCountThunders);
+                        break;
+                    default:
+                        result.Add((double)reportResult.TemperatureMax);
+                        break;
+                }
+            }
+
+            return result;
+        }
+
+        public Chart GetChartData(string optionType, string stationName, DateTime from, DateTime to)
+        {
+            var chart = new Chart();
+            chart.Type = "line";
+            var splitData = this.GetSplitData(optionType, stationName, from, to);
+
+            ChartJSCore.Models.Data data = new ChartJSCore.Models.Data();
+            data.Labels = splitData.Select(x => "").ToList();
+
+            data.Datasets = new List<Dataset>();
+            data.Datasets.Add(this.GetChartDataset(optionType, splitData));
+            chart.Data = data;
+
+            return chart;
+        }
+
+
 
         public ICollection<StationAvailabilityPeriod> GetAvailablePeriodsForStationRange(DateTime from, DateTime to, Station station)
         {
