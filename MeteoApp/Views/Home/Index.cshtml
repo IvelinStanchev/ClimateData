@@ -70,12 +70,24 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="btn btn-primary" value="Изчисли" id="submit-btn" />
+                <input id="submitBtn" type="submit" disabled class="btn btn-primary" value="Изчисли" id="submit-btn" />
             </div>
         </div>
     }
 }
 
+
+<script>
+    const checkboxValidation = () => {
+        $('input:checkbox').click(() => {
+            const isValidSelection = $('input:checkbox:checked').length > 0;
+
+            $('#submitBtn').prop('disabled', !isValidSelection);
+        });
+    }
+
+    checkboxValidation();    
+</script>
 
 <div><canvas id="lineChart"></canvas></div>
 
