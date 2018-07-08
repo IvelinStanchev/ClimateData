@@ -31,15 +31,15 @@
     {
         <tr>
             <td>@report.StationName</td>
-            <td>@report.TemperatureAvg</td>
-            <td>@report.TemperatureDeviation</td>
-            <td>@report.TemperatureMax</td>
+            <td>@string.Format("{0:F1}", report.TemperatureAvg)</td>
+            <td>@string.Format("{0:F1}", report.TemperatureDeviation)</td>
+            <td>@string.Format("{0:F1}", report.TemperatureMax)</td>
             <td>@report.TemperatureMaxDate</td>
-            <td>@report.TemperatureMin</td>
+            <td>@string.Format("{0:F1}", report.TemperatureMin)</td>
             <td>@report.TemperatureMinDate</td>
-            <td>@report.PrecipitationSum</td>
-            <td>@report.PrecipitationAgainstNorm</td>
-            <td>@report.PrecipitationMax</td>
+            <td>@string.Format("{0:F1}", report.PrecipitationSum)</td>
+            <td>@string.Format("{0:F1}", report.PrecipitationAgainstNorm)</td>
+            <td>@string.Format("{0:F1}", report.PrecipitationMax)</td>
             <td>@report.PrecipitationMaxDate</td>
             <td>@report.DayCountPrecipitationBiggerThan1</td>
             <td>@report.DayCountPrecipitationBiggerThan10</td>
